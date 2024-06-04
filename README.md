@@ -1,3 +1,5 @@
 <div align="center">
-  <div style="color: #0286DF;font-size: 28px;font-weight: bold">Qing Admin</div>
+  <h1>Qing Admin</h1>
 </div>
+
+[![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
