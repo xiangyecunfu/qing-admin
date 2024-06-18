@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import { PageFiles } from './interface'
-import handleRoutes from '@/utils/routeConfirm'
+import handleRoutes from '@/router/routeConfirm'
 
 // 导入组件
 import Login from '@/pages/Login'

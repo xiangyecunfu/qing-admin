@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom'
 import { App, ConfigProvider } from 'antd'
-import { AliveScope } from 'react-activation';
+import { AliveScope } from 'react-activation'
 
 import AppPage from './App'
 import UseStatic from '@/utils/useStatic'
