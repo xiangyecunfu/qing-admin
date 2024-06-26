@@ -1,6 +1,7 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Router from './router'
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 // 样式兼容
 import {
@@ -13,6 +14,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     hashPriority="high"
     transformers={[legacyLogicalPropertiesTransformer]}
   >
-    <Router />
+    <Provider store={store}>
+      <Router />
+    </Provider>
   </StyleProvider>,
 )

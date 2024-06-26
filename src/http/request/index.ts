@@ -4,7 +4,7 @@ import AxiosRequest from '@/http/request/config'
 import Cookies from 'js-cookie'
 
 // token定义
-const TOKEN_KEY = 'admin_token'
+const TOKEN_KEY = import.meta.env.VITE_TOKEN_KEY as string
 
 // 生成环境所用的接口
 const prefixUrl = import.meta.env.VITE_BASE_URL as string
@@ -13,7 +13,7 @@ const baseURL = process.env.NODE_ENV !== 'development' ? prefixUrl : '/api'
 function createRequest(url: string): AxiosRequest {
   return new AxiosRequest({
     baseURL: url,
-    timeout: 5000, // 请求超时事件5秒
+    timeout: 5000, // 请求超时时间5秒
     // 拦截器
     interceptors: {
       // 请求拦截

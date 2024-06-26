@@ -1,0 +1,54 @@
+@gap: 2px;
+.qing-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  &::before {
+    content: '';
+    position: absolute;
+    background: #0dc7d0;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    z-index: -2;
+    transform-origin: left top;
+    animation: rotate 2s linear infinite;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    background: #1677ff;
+    top: @gap;
+    left: @gap;
+    border-radius: inherit;
+    width: calc(100% - 2 * @gap);
+    height: calc(100% - 2 * @gap);
+    z-index: -1;
+  }
+  .ant-btn{
+    width: calc(100% - 2 * @gap);
+    height: calc(100% - 2 * @gap);
+    &-primary{
+      box-shadow: none;
+    }
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
