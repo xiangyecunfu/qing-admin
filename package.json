@@ -17,6 +17,7 @@
     "@ant-design/charts": "^2.1.1",
     "@ant-design/cssinjs": "^1.20.0",
     "@ant-design/icons": "^5.3.7",
+    "@iconify/react": "^5.0.1",
     "@loadable/component": "^5.16.4",
     "@reduxjs/toolkit": "^2.2.5",
     "@types/crypto-js": "^4.2.2",

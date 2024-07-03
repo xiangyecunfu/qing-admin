@@ -4,6 +4,7 @@ interface UserInfo {
   username: string
   email: string
   phone: string
+  photo?: string
 }
 
 export const userSlice = createSlice({
@@ -15,6 +16,7 @@ export const userSlice = createSlice({
       username: '',
       email: '',
       phone: '',
+      photo: '',
     } as UserInfo, // 用户信息
   },
   reducers: {
@@ -30,6 +32,7 @@ export const userSlice = createSlice({
         username: '',
         email: '',
         phone: '',
+        photo: '',
       }
     },
   },

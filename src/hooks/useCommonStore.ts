@@ -13,6 +13,10 @@ export const useCommonStore = () => {
   const username = useSelector(
     (state: RootState) => state.user.userInfo.username,
   )
+  // 用户头像
+  const userAVatar = useSelector(
+    (state: RootState) => state.user.userInfo.photo,
+  )
   // 是否窗口最大化
   // const isMaximize = useSelector((state: RootState) => state.tabs.isMaximize)
   // 导航数据
@@ -50,6 +54,7 @@ export const useCommonStore = () => {
     permissions,
     userId,
     username,
+    userAVatar,
     openKeys,
     selectedKeys,
     // tabs,
