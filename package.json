@@ -11,7 +11,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{jsx,tsx,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky",
+    "commitlint": "commitlint --config commitlint.config.cjs -e -V"
   },
   "dependencies": {
     "@ant-design/charts": "^2.1.1",
@@ -34,6 +36,7 @@
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
