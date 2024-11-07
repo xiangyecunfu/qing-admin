@@ -1,29 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
-interface UserInfo {
+import type { PayloadAction } from '@reduxjs/toolkit'
+interface UserModel {
   id: number
   username: string
   email: string
   phone: string
   photo?: string
 }
+type PermissionModel = string[]
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    permissions: [], // 用户权限
+    permissions: [] as PermissionModel, // 用户权限
     userInfo: {
       id: 0,
       username: '',
       email: '',
       phone: '',
       photo: '',
-    } as UserInfo, // 用户信息
+    } as UserModel, // 用户信息
   },
   reducers: {
-    setUserInfo: (state, action) => {
+    setUserInfo: (state, action: PayloadAction<UserModel>) => {
       state.userInfo = action.payload
     },
-    setPermissions: (state, action) => {
+    setPermissions: (state, action: PayloadAction<PermissionModel>) => {
       state.permissions = action.payload
     },
     clearUserInfo: (state) => {

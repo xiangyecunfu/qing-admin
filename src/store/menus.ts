@@ -1,4 +1,5 @@
 import type { SideMenu } from '@/types/interface'
+import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
 export const menuSlice = createSlice({
@@ -11,19 +12,19 @@ export const menuSlice = createSlice({
     menuList: [] as SideMenu[], // 菜单列表
   },
   reducers: {
-    toggleCollapsed: (state, action) => {
+    toggleCollapsed: (state, action: PayloadAction<boolean>) => {
       state.isCollapsed = !!action.payload
     },
-    togglePhone: (state, action) => {
+    togglePhone: (state, action: PayloadAction<boolean>) => {
       state.isPhone = !!action.payload
     },
-    setSelectedKeys: (state, action) => {
+    setSelectedKeys: (state, action: PayloadAction<string>) => {
       state.selectedKeys = action.payload
     },
-    setOpenKeys: (state, action) => {
+    setOpenKeys: (state, action: PayloadAction<string[]>) => {
       state.openKeys = action.payload
     },
-    setMenuList: (state, action) => {
+    setMenuList: (state, action: PayloadAction<SideMenu[]>) => {
       state.menuList = action.payload
     },
   },

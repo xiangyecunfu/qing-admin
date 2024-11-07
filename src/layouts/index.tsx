@@ -14,7 +14,7 @@ import Forbidden from '@/pages/ForbiddenPage'
 import type { AppDispatch } from '@/stores'
 
 // 样式导入
-import './style/layouts.less'
+import style from './style/layouts.module.less'
 
 function Layout() {
   const [getToken] = useToken()
@@ -34,14 +34,14 @@ function Layout() {
   }, [token])
 
   return (
-    <div id="layout">
+    <div id={style.layout}>
       {contextHolder}
-      <div id="layout-header">
+      <div id={style.layoutHeader}>
         <Header />
       </div>
-      <div id="layout-content">
+      <div id={style.layoutContent}>
         <Menu />
-        <div id="layout-content-main">
+        <div id={style.layoutContentMain}>
           <Tabs />
           <div className="main-container">
             {/* 骨架 */}

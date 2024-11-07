@@ -1,11 +1,14 @@
 import type { MenuProps } from 'antd'
-
 import { Dropdown } from 'antd'
 import { FormOutlined, LogoutOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { useAliveController } from 'react-activation'
 
 import { useCommonStore } from '@/hooks/useCommonStore'
+import { useAppDispatch } from '@/store'
+import { clearUserInfo } from '@/store/user'
+import useModal from '@/components/Modal'
+import style from '../style/layouts.module.less'
 
 type MenuKey = 'password' | 'logout'
 
@@ -13,24 +16,26 @@ function LoginOut() {
   const { username } = useCommonStore()
   const navigate = useNavigate()
   const { clear } = useAliveController()
+  const dispatch = useAppDispatch()
+  const modal = useModal()
 
   const items: MenuProps['items'] = [
     {
       key: 'password',
       label: <span>修改密码</span>,
-      icon: <FormOutlined className="mr-10px" />,
+      icon: <FormOutlined className="mr-10" />,
     },
     {
       key: 'logout',
       label: <span>退出登录</span>,
-      icon: <LogoutOutlined className="mr-10px" />,
+      icon: <LogoutOutlined className="mr-10" />,
     },
   ]
   // 点击菜单
   const onClick: MenuProps['onClick'] = (e) => {
     switch (e.key as MenuKey) {
       case 'password':
-        console.log('修改密码')
+        handleUpdatePassword()
         break
       case 'logout':
         logout()
@@ -41,16 +46,23 @@ function LoginOut() {
   }
   // 退出登录
   const logout = () => {
-    console.log('退出登录')
-    // clear()
-    // navigate('/login')
+    modal({
+      title: '温馨提示',
+      content: '确定要退出登录吗？',
+      state: 'warning',
+    }).then(() => {
+      dispatch(clearUserInfo())
+      clear()
+      navigate('/login')
+    })
   }
-
+  // 修改密码
+  const handleUpdatePassword = () => {}
   return (
     <>
-      <div className="login-out">
+      <div className={style.loginOut}>
         <Dropdown menu={{ items, onClick }}>
-          <div className="user-name">{username || 'qing-admin'}</div>
+          <div className={style.userName}>{username || 'qing-admin'}</div>
         </Dropdown>
       </div>
     </>

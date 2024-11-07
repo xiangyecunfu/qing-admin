@@ -69,3 +69,8 @@ export interface PermissionResponseResult {
   treeData: DataNode[]
   defaultCheckedKeys: key[]
 }
+
+// 菜单数据
+export interface NavData {
+  label: string
+}

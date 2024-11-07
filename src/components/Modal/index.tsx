@@ -18,9 +18,11 @@ export interface NewModalProps
   showOkBtn?: boolean
 }
 
+type configType = Omit<NewModalProps, 'open'>
+
 function useModal() {
   const [hasDom, setHasDom] = useState(false)
-  const modal = useCallback((config: NewModalProps) => {
+  const modal = useCallback((config: configType) => {
     if (hasDom) return
     return new Promise<void>((resolve, reject) => {
       const el = document.createElement('div')

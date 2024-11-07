@@ -10,17 +10,17 @@ import LoginOut from './LoginOut'
 // 静态资源
 import Logo from '@/assets/images/admin.svg'
 // 样式导入
-import '../style/layouts.less'
+import style from '../style/layouts.module.less'
 
 function Header() {
   return (
-    <div className="header-container">
-      <div className="header-logo">
+    <div className={style.headerContainer}>
+      <div className={style.headerLogo}>
         <img src={Logo} alt="logo" />
         <span>后台管理系统</span>
       </div>
-      <div className="header-setting">
-        <div className="header-avatar">
+      <div className={style.headerSetting}>
+        <div className={style.headerAvatar}>
           <Avatar />
         </div>
         <LoginOut />

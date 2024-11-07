@@ -6,8 +6,7 @@ import LoginButton from './Button'
 import { LoginData } from './interface'
 import { SideMenu } from '@/types/interface'
 import { setUserInfo, setPermissions } from '@/store/user'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/store'
+import { useAppDispatch } from '@/store'
 import { setMenuList } from '@/store/menus'
 import { getPermissionMenus } from '@/utils/menu'
 
@@ -26,7 +25,7 @@ function Login() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [messageApi, contextHolder] = message.useMessage()
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useAppDispatch()
   const [getToken, setToken] = useToken()
   const { permissions, menuList } = useCommonStore()
   const { login, getPermissions } = apiUser
